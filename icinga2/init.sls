@@ -25,7 +25,7 @@ icinga2_keyring_pkg:
 icinga2_pkg:
   pkg.installed:
     - name: {{ icinga2.package }}
-{%- if grains['os_family'] in ['Debian', 'Ubuntu'] %}
+{%- if grains['os_family'] in ['Debian'] %}
     - require:
       - pkg: icinga2_keyring_pkg
 {%- elif grains['os_family'] == 'RedHat' %}
