@@ -2,6 +2,9 @@
 
 {%- set kernel = salt['grains.filter_by']({
   'Linux': {
+    'repo':              'packages.icinga.com',
+    'signed_by':         '/usr/share/keyrings/icinga-archive-keyring.gpg',
+    'keyring_package':   'icinga-archive-keyring',
     'package':           'icinga2',
     'service':           'icinga2',
     'conf_dir':          '/etc/icinga2',
