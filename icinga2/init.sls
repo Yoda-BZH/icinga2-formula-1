@@ -14,7 +14,7 @@ icinga2_repo:
 # TODO: RedHat repo info goes here
 {%- endif %}
 
-{%- if grains['os_family'] in ['Debian', 'Ubuntu'] %}
+{%- if grains['os_family'] in ['Debian'] %}
 icinga2_keyring_pkg:
   pkg.installed:
     - name: {{ icinga2.keyring_package }}
