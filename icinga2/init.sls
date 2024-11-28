@@ -28,7 +28,7 @@ icinga2_pkg:
   pkg.installed:
     - name: {{ icinga2.package }}
     - require:
-      - pkgrepo: icinga2_repo
+      - pkgrepo: icinga2_keyring_pkg
 
 icinga2_service:
   service.running:
