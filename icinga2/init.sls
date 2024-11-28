@@ -1,7 +1,7 @@
 {% from "icinga2/map.jinja" import icinga2 with context %}
 
 
-{%- if grains['os_family'] in ['Debian', 'Ubuntu'] %}
+{%- if grains['os_family'] in ['Debian'] %}
 # This repository also requires Debian Backports repository
 icinga2_repo:
   pkgrepo.managed:
