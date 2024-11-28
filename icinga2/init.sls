@@ -18,17 +18,19 @@ icinga2_repo:
 icinga2_keyring_pkg:
   pkg.installed:
     - name: {{ icinga2.keyring_package }}
-{%- if grains['os'] in ['Debian', 'Ubuntu'] %}
     - require:
       - pkgrepo: icinga2_repo
-{%- endif %}
 {%- endif %}
 
 icinga2_pkg:
   pkg.installed:
     - name: {{ icinga2.package }}
+{%- if grains['os'] in ['Debian', 'Ubuntu'] %}
     - require:
-      - pkgrepo: icinga2_repo
+      - pkg: icinga2_keyring_pkg
+{%- elif grains['os'] == 'RedHat' %}
+# TODO: RedHat repo info goes here
+{%- endif %}
 
 icinga2_service:
   service.running:
